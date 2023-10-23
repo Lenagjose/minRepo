@@ -1,0 +1,18 @@
+base-flagg-blaa = rectangle(220, 160, "solid", "midnight-blue")
+firkant-rod = square(60, "solid", "fire-brick")
+firkant-hvit = square(70, "solid", "white")
+rektangel-rod = rectangle(120, 60, "solid", "fire-brick")
+rektangel-hvit = rectangle(130, 70, "solid", "white")
+
+underlay-xy(base-flagg-blaa, 0, 0,
+  overlay-xy(firkant-rod, 0, 0,
+    overlay-xy(firkant-hvit, 0, 0,
+      overlay-xy(firkant-rod, 0, -100, 
+        overlay-xy(firkant-hvit, 0, -90,
+          overlay-xy(rektangel-rod, -100, -100,
+            overlay-xy(rektangel-hvit, -90, -90,
+              overlay-xy(rektangel-rod, -100, 0,
+                overlay-xy(rektangel-hvit, -90, 0,
+       
+                  base-flagg-blaa)))))))))
+    
