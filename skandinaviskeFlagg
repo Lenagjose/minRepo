@@ -1,34 +1,73 @@
-fun
-  flagg(loddrett-en, loddrett-to, vannrett-to, vannrett-en, bakgrunn) : 
+fun flagg(
+    ytre-vertikal-bredde, ytre-vertikal-hoyde, ytre-vertikal, ytre-vertikal-venstre, ytre-vertikal-hoyre, ytre-horisontal-bredde, ytre-horisontal-hoyde, ytre-horisontal, ytre-horisontal-venstre, ytre-horisontal-hoyre, indre-vertikal-bredde, indre-vertikal-hoyde, indre-vertikal, indre-vertikal-venstre, indre-vertikal-hoyre, indre-horisontal-bredde, indre-horisontal-hoyde, indre-horisontal, indre-horisontal-venstre, indre-horisontal-hoyre, bakgrunn-bredde, bakgrunn-hoyde, bakgrunn
+    ) :
   frame(
-    overlay-xy(rectangle(20, 160, "solid", loddrett-en), -62, 0, 
-      overlay-xy(rectangle(220, 20, "solid", vannrett-en), 0, -57, 
-        overlay-xy(rectangle(45, 160, "solid", loddrett-to), -50, 0, 
-          overlay-xy( rectangle(220, 40, "solid", vannrett-to), 0, -47, 
-            rectangle(220, 160, "solid", bakgrunn))))))
-
+    overlay-xy(
+      rectangle(ytre-vertikal-bredde, ytre-vertikal-hoyde, "solid", ytre-vertikal), ytre-vertikal-venstre, ytre-vertikal-hoyre,
+      overlay-xy(
+        rectangle(ytre-horisontal-bredde, ytre-horisontal-hoyde, "solid", ytre-horisontal), ytre-horisontal-venstre, ytre-horisontal-hoyre,
+        overlay-xy(
+          rectangle(indre-vertikal-bredde, indre-vertikal-hoyde, "solid", indre-vertikal), indre-vertikal-venstre, indre-vertikal-hoyre,
+          overlay-xy(
+            rectangle(indre-horisontal-bredde, indre-horisontal-hoyde, "solid", indre-horisontal), indre-horisontal-venstre, indre-horisontal-hoyre,
+            rectangle(bakgrunn-bredde, bakgrunn-hoyde, "solid", bakgrunn))))))
 end
 
-#Norge sitt nasjonalflagg
-flagg("midnight-blue", "white", "white", "midnight-blue", "fire-brick")
+# Norge sitt nasjonalflagg
+flagg(
+  20, 160, "midnight-blue", -75, 0,
+  220, 20, "midnight-blue", 0, -68,
+  45, 160, "white", -62, 0,
+  220, 40, "white", 0, -58,
+  220, 160, "fire-brick"
+  )
 
 
-#Sverige sitt nasjonalflag
-flagg("gold", "steel-blue", "steel-blue", "gold", "steel-blue")
+# Sverige sitt nasjonalflagg
+flagg(
+  10, 160, "gold", -100, 0,
+  250, 10, "gold", 0, -68,
+  30, 160, "gold", -87, 0,
+  250, 30, "gold", 0, -58,
+  250, 160, "steel-blue"
+)
 
 
-#Danmark sitt nasjonalfalgg
-flagg("white", "fire-brick", "fire-brick", "white", "fire-brick")
+# Danmark sitt nasjonalflagg
+flagg(
+  10, 160, "white", -70, 0,
+  210, 10, "white", 0, -68,
+  30, 160, "white", -70, 0,
+  210, 30, "white", 0, -58,
+  210, 160, "fire-brick"
+)
+
+# Island sitt nasjonalflagg
+flagg(
+  20, 160, "fire-brick", -75, 0,
+  230, 20, "fire-brick", 0, -68,
+  45, 160, "white", -62, 0,
+  230, 40, "white", 0, -58,
+  230, 160, "royal-blue"
+  )
 
 
-#Finland sitt nasjonalflagg
-flagg("navy", "navy", "navy", "navy", "white")
+
+# Finland sitt nasjonalflagg
+flagg(
+  20, 160, "navy", -100, 0,
+  265, 20, "navy", 0, -68,
+  45, 160, "navy", -80, 0,
+  265, 40, "navy", 0, -58,
+  265, 160, "white"
+  )
 
 
-#Island sitt nasjonalflagg
-flagg("fire-brick", "white", "white", "fire-brick", "royal-blue")
-
-
-#Farøyene sitt nasjonalflagg
-flagg("crimson", "royal-blue", "royal-blue", "crimson", "white")
-
+# Færøyene sitt nasjonalflagg
+flagg(
+  20, 160, "fire-brick", -75, 0,
+  230, 20, "fire-brick", 0, -68, 
+  45, 160, "royal-blue", -62, 0,
+  230, 40, "royal-blue", 0, -58,
+  230, 160, "white"
+  )
