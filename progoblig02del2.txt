@@ -1,0 +1,57 @@
+include shared-gdrive(
+"dcic-2021",
+"1wyQZj_L0qqV9Ekgr9au6RX2iqt2Ga8Ep")
+
+include gdrive-sheets
+include data-source
+ssid = "1RYN0i4Zx_UETVuYacgaGfnFcv4l9zd9toQTTdkQkj7g"
+table =
+load-table: komponent, energi
+source: load-spreadsheet(ssid).sheet-by-name("kWh", true)
+sanitize energi using string-sanitizer
+  end 
+table
+
+#a Sanitized kolonnen ved å bruke string-sanitizer. Slik ble kolonne-dataen i kolonnen energi om til (strings) og bestemt data istedenfor ubestemt data (some)
+
+
+
+fun energi-to-number(str :: String) -> Number:
+  doc: "om ikke et numersk string, gjør til verdi 0."
+  cases(Option) string-to-number(str):
+    | some(a) => a
+    | none => 60
+  end 
+  
+where:
+  energi-to-number("0") is 0
+energi-to-number("48") is 48
+end
+
+#b Fullførte funksjonen fra Kodeeksempel 3. Denne overfører strings om til tall. 
+
+table-transformed = transform-column(table, "energi", energi-to-number)
+  table-transformed
+
+#c Her brukte jeg funksjonen fra dcic-2021 pakken og dermed ble alle strings fra kolonnen energi om til tall/verdier. Jeg ga også funksjonen et variabelnavn, som da er table-transformed. 
+
+distance-travelled-per-day = 30
+distance-per-unit-of-fuel = 5
+energy-per-unit-of-fuel = 10
+
+
+forbruk-kwh-per-dag = (distance-travelled-per-day / distance-per-unit-of-fuel) * energy-per-unit-of-fuel 
+forbruk-kwh-per-dag
+
+
+sum-for-total-energiforbruk-per-innbygger = sum(table-transformed, "energi")
+sum-for-total-energiforbruk-per-innbygger 
+
+
+#d Det totale energiforbruket til en typisk "innbygger" i et industriland per dag er 215. Dette fant jeg ut ved å først regne ut hvor mye kWh som ble brukt på bil totalt per dag. Måten jeg fant ut dette var å ta distance-travelled-per-day / distance-per-unit-of-fuel) * energy-per-unit-of-fuel. Da kom jeg frem til svaret 60. Dette kunne deretter bli satt inn lenger oppe, slik at det var synlig i tabellen.  Deretter brukte jeg funksjonen sum fra dcic-2021 pakken og fikk summert alle verdiene fra kollonen energi, og svaret ble dermed 215. 
+
+
+bar-chart(table-transformed, "komponent", "energi")
+
+
+#e Her fikk jeg brukt funksjonen bar-chart fra dcic-2021 pakken. Denne gjorde at jeg fikk generert en visalisering av dataen. For å få mer korrekt data måtte jeg endre på funksjonen energi-to-number. Det jeg gjorde var å legge inn 0 i stringen, istendefor blank. 
