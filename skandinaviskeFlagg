@@ -1,0 +1,34 @@
+fun
+  flagg(loddrett-en, loddrett-to, vannrett-to, vannrett-en, bakgrunn) : 
+  frame(
+    overlay-xy(rectangle(20, 160, "solid", loddrett-en), -62, 0, 
+      overlay-xy(rectangle(220, 20, "solid", vannrett-en), 0, -57, 
+        overlay-xy(rectangle(45, 160, "solid", loddrett-to), -50, 0, 
+          overlay-xy( rectangle(220, 40, "solid", vannrett-to), 0, -47, 
+            rectangle(220, 160, "solid", bakgrunn))))))
+
+end
+
+#Norge sitt nasjonalflagg
+flagg("midnight-blue", "white", "white", "midnight-blue", "fire-brick")
+
+
+#Sverige sitt nasjonalflag
+flagg("gold", "steel-blue", "steel-blue", "gold", "steel-blue")
+
+
+#Danmark sitt nasjonalfalgg
+flagg("white", "fire-brick", "fire-brick", "white", "fire-brick")
+
+
+#Finland sitt nasjonalflagg
+flagg("navy", "navy", "navy", "navy", "white")
+
+
+#Island sitt nasjonalflagg
+flagg("fire-brick", "white", "white", "fire-brick", "royal-blue")
+
+
+#Farøyene sitt nasjonalflagg
+flagg("crimson", "royal-blue", "royal-blue", "crimson", "white")
+
